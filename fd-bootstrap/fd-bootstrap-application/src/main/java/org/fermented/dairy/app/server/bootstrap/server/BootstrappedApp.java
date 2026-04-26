@@ -4,20 +4,16 @@ import org.fermented.dairy.app.server.bootstrap.api.Bootstrapped;
 import org.fermented.dairy.app.server.bootstrap.api.Bootstrapper;
 import org.fermented.dairy.app.server.bootstrap.api.error.StartupError;
 import org.fermented.dairy.app.server.bootstrap.server.exceptions.BootstrapException;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.util.*;
 import java.util.stream.Collectors;
 
-import static org.fermented.dairy.app.server.bootstrap.server.logging.LOGGING.BOOTSTRAPPING_LOGGER_TOPIC;
+import static org.fermented.dairy.app.server.bootstrap.server.logging.LOGGING.BOOTSTRAPPING_LOGGER;
 
 /// Application container that manages bootstrapped components using ServiceLoader SPI.
 ///
 /// @since 1.0.0
 public final class BootstrappedApp {
-
-    private static final Logger LOG = LoggerFactory.getLogger(BOOTSTRAPPING_LOGGER_TOPIC);
 
     private final Map<String, ? extends Bootstrapped> componentMap;
 
@@ -43,7 +39,7 @@ public final class BootstrappedApp {
     /// @return a map of component names to Bootstrapped instances
     private Map<String, Bootstrapped> buildComponentMap() throws BootstrapException{
         final Map<String, Bootstrapper> componentBootstrappers = new HashMap<>();
-        final Set<String> duplicateComponentNames = new HashSet<>();
+        final Map<String, String> duplicateComponentNames = new HashMap<>();
         final Map<String, String> config = getConfig();
         final ServiceLoader<Bootstrapper> loader = ServiceLoader.load(Bootstrapper.class);
 
@@ -57,14 +53,16 @@ public final class BootstrappedApp {
                     final String name = pair.key;
                     final Bootstrapper bootstrapper = pair.value;
                     if (componentBootstrappers.containsKey(name)) {
-                        duplicateComponentNames.add(name);
+                        duplicateComponentNames.put(name, bootstrapper.getClass().getCanonicalName());
                     } else {
                         componentBootstrappers.put(name, bootstrapper);
                     }
                 }
         );
         if (!duplicateComponentNames.isEmpty()) {
-            throw new BootstrapException.DuplicateComponentException(duplicateComponentNames);
+            var exception = new BootstrapException.DuplicateComponentException(duplicateComponentNames);
+            BOOTSTRAPPING_LOGGER.error("Duplicate Component names", exception);
+            throw exception;
         }
 
         return componentBootstrappers.entrySet().stream().map( entry ->
@@ -74,7 +72,9 @@ public final class BootstrappedApp {
 
     /// Starts all managed components.
     public void start() {
-        componentMap.values().forEach(Bootstrapped::start);
+        componentMap.values().stream().map(
+
+        );
     }
 
     /// Returns the managed component map.

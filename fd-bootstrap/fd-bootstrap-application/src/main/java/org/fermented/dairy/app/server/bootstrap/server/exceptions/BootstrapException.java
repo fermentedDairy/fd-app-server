@@ -1,30 +1,29 @@
 package org.fermented.dairy.app.server.bootstrap.server.exceptions;
 
-import java.util.Set;
+import java.util.Map;
 
+/// Base exception class for errors occurring during the bootstrapping process.
+///
+/// This class is sealed and serves as the root for all bootstrapping-related exceptions.
+///
+/// @since 1.0.0
 public sealed class BootstrapException extends Exception {
-    public BootstrapException(String message) {
+
+    protected BootstrapException(String message) {
         super(message);
     }
 
+    /// Exception thrown when duplicate component names are found during bootstrapping.
+    ///
+    /// @since 1.0.0
     public static final class DuplicateComponentException extends BootstrapException{
 
-        private final Set<String> duplicateComponentNames;
-
-        public DuplicateComponentException(Set<String> duplicateComponentNames) {
+        /// Creates a new instance of {@code DuplicateComponentException} with the mapping of duplicate names.
+        ///
+        /// @param duplicateComponentNames A map where keys are the component names and values are the reasons for duplication.
+        /// @since 1.0.0
+        public DuplicateComponentException(Map<String, String> duplicateComponentNames) {
             super("Duplicate component names found: " + duplicateComponentNames);
-            this.duplicateComponentNames = duplicateComponentNames;
-        }
-
-        public Set<String> getDuplicateComponentNames() {
-            return duplicateComponentNames;
-        }
-
-        @Override
-        public String toString() {
-            return "DuplicateComponentException{" +
-                    "duplicateComponentNames=" + duplicateComponentNames +
-                    '}';
         }
     }
 }

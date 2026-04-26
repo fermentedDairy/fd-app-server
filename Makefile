@@ -17,3 +17,7 @@ test:
 install:
 	@echo "Runs 'mvn clean install' to build and install artifacts locally."
 	mvn clean install
+
+resolveDependencies:
+	@echo "Resolving dependencies"
+	mvn dependency:resolve
