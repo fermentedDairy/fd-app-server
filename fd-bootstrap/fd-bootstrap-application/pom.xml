@@ -27,5 +27,10 @@
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
         </dependency>
+        <dependency>
+            <groupId>org.fermented.dairy.app.server</groupId>
+            <artifactId>fd-concurrency</artifactId>
+            <version>${parent.version}</version>
+        </dependency>
     </dependencies>
 </project>

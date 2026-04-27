@@ -2,7 +2,6 @@ package org.fermented.dairy.app.server.bootstrap.server;
 
 import org.fermented.dairy.app.server.bootstrap.api.Bootstrapped;
 import org.fermented.dairy.app.server.bootstrap.api.Bootstrapper;
-import org.fermented.dairy.app.server.bootstrap.api.error.StartupError;
 import org.fermented.dairy.app.server.bootstrap.server.exceptions.BootstrapException;
 
 import java.util.*;
@@ -17,19 +16,9 @@ public final class BootstrappedApp {
 
     private final Map<String, ? extends Bootstrapped> componentMap;
 
-    /// Constructs a BootstrappedApp by discovering all Bootstrapper implementations
-    /// through Java's ServiceLoader SPI mechanism.
+    /// Constructs a new BootstrappedApp, bootstrapping all components via ServiceLoader SPI.
     ///
-    /// This constructor loads all [Bootstrapper] classes from the classpath
-    /// using [ServiceLoader]. Each bootstrapper is invoked with an empty configuration
-    /// map to produce a bootstrapped component that is stored in a map indexed by the
-    /// component's startup identifier.
-    ///
-    /// The loaded bootstrappers are used to initialize their respective components,
-    /// which are then available in the [#componentMap] field for management operations.
-    ///
-    /// @throws StartupError if any bootstrapper fails to produce a valid component
-    /// @since 1.0.0
+    /// @throws BootstrapException if a component bootstrap fails or duplicate components are detected
     public BootstrappedApp() throws BootstrapException {
         componentMap = buildComponentMap();
     }
