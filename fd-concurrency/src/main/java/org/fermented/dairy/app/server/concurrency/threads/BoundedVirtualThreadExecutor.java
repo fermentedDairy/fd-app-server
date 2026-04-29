@@ -24,6 +24,14 @@ public final class BoundedVirtualThreadExecutor implements VirtualThreadExecutor
         threadFactory = new BoundedVirtualThreadFactory(maxConcurrency, maxWaitCount, threadNamePrefix);
     }
 
+    /// Executes the specified command as a task.
+    ///
+    /// This task is executed in a new virtual thread, subject to the concurrency limits
+    /// of the executor.
+    ///
+    /// @param command The task to execute.
+    /// @throws NullPointerException if the command is null.
+    /// @since 1.0.0
     @Override
     public void execute(@NotNull final Runnable command) {
         Objects.requireNonNull(command);

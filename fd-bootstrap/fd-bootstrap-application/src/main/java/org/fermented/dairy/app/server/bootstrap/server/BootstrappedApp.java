@@ -26,6 +26,8 @@ public final class BootstrappedApp {
     /// Builds a map of component names to their bootstrapped instances.
     ///
     /// @return A map of component names to Bootstrapped instances.
+    /// @throws BootstrapException If a component bootstrap fails or duplicate components are detected.
+    /// @since 1.0.0
     private Map<String, Bootstrapped> buildComponentMap() throws BootstrapException{
         final Map<String, Bootstrapper> componentBootstrappers = new HashMap<>();
         final Map<String, String> duplicateComponentNames = new HashMap<>();

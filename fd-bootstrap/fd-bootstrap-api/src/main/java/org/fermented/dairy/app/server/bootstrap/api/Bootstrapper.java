@@ -24,5 +24,9 @@ public interface Bootstrapper extends Function<Map<String, String>, Bootstrapped
     /// @since 1.0.0
     Bootstrapped apply(Map<String, String> config);
 
+    /// Returns the name of the bootstrapper.
+    ///
+    /// @return The name of this bootstrapper.
+    /// @since 1.0.0
     String name();
 }
