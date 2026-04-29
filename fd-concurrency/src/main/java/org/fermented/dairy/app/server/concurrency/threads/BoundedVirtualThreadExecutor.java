@@ -16,9 +16,9 @@ public final class BoundedVirtualThreadExecutor implements VirtualThreadExecutor
     private final BoundedVirtualThreadFactory threadFactory;
     /// Creates a new bounded virtual thread executor.
     ///
-    /// @param maxConcurrency the maximum number of concurrent virtual threads
-    /// @param maxWaitCount the maximum number of tasks that can wait for a slot (best-effort)
-    /// @param threadNamePrefix the prefix for virtual thread names
+    /// @param maxConcurrency The maximum number of concurrent virtual threads.
+    /// @param maxWaitCount The maximum number of tasks that can wait for a slot (best-effort).
+    /// @param threadNamePrefix The prefix for virtual thread names.
     /// @since 1.0.0
     BoundedVirtualThreadExecutor(final int maxConcurrency, final long maxWaitCount, final String threadNamePrefix) {
         threadFactory = new BoundedVirtualThreadFactory(maxConcurrency, maxWaitCount, threadNamePrefix);

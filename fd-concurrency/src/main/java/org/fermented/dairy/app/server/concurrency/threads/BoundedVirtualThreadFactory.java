@@ -26,9 +26,9 @@ public class BoundedVirtualThreadFactory implements ThreadFactory {
 
     /// Creates a new bounded virtual thread factory.
     ///
-    /// @param maxConcurrency the maximum number of concurrent virtual threads
-    /// @param maxWaitCount the maximum number of tasks that can wait for a slot (best-effort)
-    /// @param threadNamePrefix the prefix for virtual thread names
+    /// @param maxConcurrency The maximum number of concurrent virtual threads.
+    /// @param maxWaitCount The maximum number of tasks that can wait for a slot (best-effort).
+    /// @param threadNamePrefix The prefix for virtual thread names.
     /// @since 1.0.0
     BoundedVirtualThreadFactory(final int maxConcurrency, final long maxWaitCount, final String threadNamePrefix) {
         this.semaphore = new Semaphore(maxConcurrency, true);
@@ -42,9 +42,9 @@ public class BoundedVirtualThreadFactory implements ThreadFactory {
     /// If the wait queue has reached [maxWaitCount], a
     /// {@link ThreadRuntimeException.TooManyWaitingThreads} exception is thrown.
     ///
-    /// @param command the runnable to execute in the new thread
-    /// @return a new unstarted virtual thread
-    /// @throws ThreadRuntimeException.TooManyWaitingThreads if the wait queue is full
+    /// @param command The runnable to execute in the new thread.
+    /// @return A new unstarted virtual thread.
+    /// @throws ThreadRuntimeException.TooManyWaitingThreads If the wait queue is full.
     /// @since 1.0.0
     @Override
     public Thread newThread(@NotNull Runnable command) {

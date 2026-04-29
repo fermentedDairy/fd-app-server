@@ -18,14 +18,14 @@ public final class BootstrappedApp {
 
     /// Constructs a new BootstrappedApp, bootstrapping all components via ServiceLoader SPI.
     ///
-    /// @throws BootstrapException if a component bootstrap fails or duplicate components are detected
+    /// @throws BootstrapException If a component bootstrap fails or duplicate components are detected.
     public BootstrappedApp() throws BootstrapException {
         componentMap = buildComponentMap();
     }
 
     /// Builds a map of component names to their bootstrapped instances.
     ///
-    /// @return a map of component names to Bootstrapped instances
+    /// @return A map of component names to Bootstrapped instances.
     private Map<String, Bootstrapped> buildComponentMap() throws BootstrapException{
         final Map<String, Bootstrapper> componentBootstrappers = new HashMap<>();
         final Map<String, String> duplicateComponentNames = new HashMap<>();
@@ -58,6 +58,7 @@ public final class BootstrappedApp {
                 Map.entry(entry.getKey(), entry.getValue().apply(config))
                 ).collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
     }
+
 
     /// Starts all managed components.
     public void start() {
