@@ -63,6 +63,10 @@ public final class BootstrappedApp {
 
 
     /// Starts all managed components.
+    ///
+    /// This method iterates through all bootstrapped components and starts them.
+    ///
+    /// @since 1.0.0
     public void start() {
         componentMap.values().stream().map(
 
@@ -71,11 +75,16 @@ public final class BootstrappedApp {
 
     /// Returns the managed component map.
     ///
-    /// @return the component map
+    /// @return A map of component names to their bootstrapped instances.
+    /// @since 1.0.0
     public Map<String, ? extends Bootstrapped> componentMap() {
         return componentMap;
     }
 
+    /// Returns the configuration map for the bootstrapped application.
+    ///
+    /// @return A map containing the configuration settings.
+    /// @since 1.0.0
     private Map<String, String> getConfig(){
         return Map.of();
     }

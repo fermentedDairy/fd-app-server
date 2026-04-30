@@ -65,6 +65,13 @@ public class BoundedVirtualThreadFactory implements ThreadFactory {
         );
     }
 
+    /// Handles exceptions that occur during thread execution.
+    ///
+    /// This method logs the error and wraps the cause in a {@link ThreadRuntimeException.ExecutionException}.
+    ///
+    /// @param message The error message.
+    /// @param cause The cause of the exception.
+    /// @since 1.0.0
     private void handleException(String message, Throwable cause) {
         THREADS_LOGGER.error(message, cause);
         Thread.currentThread().interrupt();

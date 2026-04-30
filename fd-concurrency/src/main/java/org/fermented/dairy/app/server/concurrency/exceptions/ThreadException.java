@@ -32,7 +32,17 @@ public sealed class ThreadException extends Exception {
         /// @param message The detail message.
         /// @param cause The cause of the exception.
         /// @since 1.0.0
-        public SemaphoreAcquisitionException(String message, Throwable cause) {
+    /// Creates a new semaphore acquisition exception.
+    ///
+    /// @param message The detail message.
+    /// @relies cause The cause of the exception.
+    /// @since 1.0.0
+    /// Creates a new semaphore acquisition exception.
+    ///
+    /// @param message The detail message.
+    /// @param cause The cause of the exception.
+    /// @since 1.0.0
+    public SemaphoreAcquisitionException(String message, Throwable cause) {
             super(message, cause);
         }
     }

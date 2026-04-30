@@ -5,10 +5,19 @@ package org.fermented.dairy.app.server.concurrency.exceptions;
 ///
 /// @since 1.0.0
 public sealed class ThreadRuntimeException extends RuntimeException {
+    /// Creates a new {@code ThreadRuntimeException} with the specified message.
+    ///
+    /// @param message The error message.
+    /// @since 1.0.0
     protected ThreadRuntimeException(String message) {
         super(message);
     }
 
+    /// Creates a new {@code ThreadRuntimeException} with the specified message and cause.
+    ///
+    /// @param message The error message.
+    /// @param cause The underlying cause of the exception.
+    /// @since 1.0.0
     protected ThreadRuntimeException(String message, Throwable cause) {
         super(message, cause);
     }

@@ -9,13 +9,17 @@ import java.util.Map;
 /// @since 1.0.0
 public sealed class BootstrapException extends Exception {
 
+    /// Creates a new {@code BootstrapException} with the specified message.
+    ///
+    /// @param message The detail message.
+    /// @since 1.0.0
     protected BootstrapException(String message) {
         super(message);
     }
 
     /// Exception thrown when duplicate component names are found during bootstrapping.
     ///
-    /// @since 1.0.0
+    /// @since 1.0/0.0
     public static final class DuplicateComponentException extends BootstrapException{
 
         /// Creates a new instance of {@code DuplicateComponentException} with the mapping of duplicate names.
