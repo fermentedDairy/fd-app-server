@@ -45,7 +45,9 @@
         <module>fd-http</module>
         <module>fd-file-server</module>
         <module>fd-concurrency</module>
+        <module>fd-config</module>
     </modules>
+
     <dependencyManagement>
         <dependencies>
             <dependency>

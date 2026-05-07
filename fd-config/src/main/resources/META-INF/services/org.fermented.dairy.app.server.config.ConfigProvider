@@ -1,0 +1,2 @@
+org.fermented.dairy.app.server.config.PropertiesFileConfigProvider
+org.fermented.dairy.app.server.config.SystemPropertiesConfigProvider
