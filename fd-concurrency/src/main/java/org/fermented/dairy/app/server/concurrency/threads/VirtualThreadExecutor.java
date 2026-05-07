@@ -2,7 +2,7 @@ package org.fermented.dairy.app.server.concurrency.threads;
 
 import java.util.concurrent.Executor;
 
-import static org.fermented.dairy.app.server.concurrency.logging.LOGGING.THREADS_LOGGER;
+import static org.fermented.dairy.app.server.concurrency.logging.Logging.THREADS_LOGGER;
 
 /// An interface for an executor that specifically uses virtual threads.
 ///

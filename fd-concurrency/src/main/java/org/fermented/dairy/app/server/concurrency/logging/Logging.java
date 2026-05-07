@@ -8,7 +8,7 @@ import org.slf4j.LoggerFactory;
 /// This class provides a centralized logger for threading-related events.
 ///
 /// @since 1.0.0
-public final class LOGGING {
+public final class Logging {
 
     /// The topic name used for threading-related logs.
     /// @since 1.0.0
@@ -26,6 +26,6 @@ public final class LOGGING {
     /// @since 1.0.0
     public static final Logger THREADS_FUTURES_LOGGER = LoggerFactory.getLogger(THREADS_FUTURES_LOGGING_TOPIC);
 
-    private LOGGING(){}
+    private Logging(){}
 
 }

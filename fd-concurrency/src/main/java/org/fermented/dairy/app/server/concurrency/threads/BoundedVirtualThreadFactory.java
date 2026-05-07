@@ -8,7 +8,7 @@ import java.util.Objects;
 import java.util.concurrent.Semaphore;
 import java.util.concurrent.ThreadFactory;
 
-import static org.fermented.dairy.app.server.concurrency.logging.LOGGING.THREADS_LOGGER;
+import static org.fermented.dairy.app.server.concurrency.logging.Logging.THREADS_LOGGER;
 
 /// A {@link ThreadFactory} implementation that creates bounded virtual threads.
 ///

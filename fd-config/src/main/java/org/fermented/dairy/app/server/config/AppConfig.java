@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.ServiceLoader;
 
-import static org.fermented.dairy.app.server.config.logging.LOGGING.LOGGER;
+import static org.fermented.dairy.app.server.config.logging.Logging.LOGGER;
 
 /// Main configuration manager that aggregates multiple configuration providers.
 ///

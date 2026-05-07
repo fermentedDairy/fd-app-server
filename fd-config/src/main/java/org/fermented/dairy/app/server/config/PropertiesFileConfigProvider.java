@@ -7,7 +7,7 @@ import java.io.InputStream;
 import java.util.Optional;
 import java.util.Properties;
 
-import static org.fermented.dairy.app.server.config.logging.LOGGING.LOGGER;
+import static org.fermented.dairy.app.server.config.logging.Logging.LOGGER;
 
 /// A configuration provider that loads properties from a file.
 ///

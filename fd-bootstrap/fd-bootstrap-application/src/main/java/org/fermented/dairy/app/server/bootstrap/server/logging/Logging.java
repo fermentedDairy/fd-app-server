@@ -8,7 +8,7 @@ import org.slf4j.LoggerFactory;
 /// This class provides a centralized logger for bootstrapping events.
 ///
 /// @since 1.0.0
-public final class LOGGING {
+public final class Logging {
 
     /// The topic name used for bootstrapping-related logs.
     /// @since 1.0.0
@@ -18,5 +18,5 @@ public final class LOGGING {
     /// @since 1.0.0
     public static final Logger BOOTSTRAPPING_LOGGER = LoggerFactory.getLogger(BOOTSTRAPPING_LOGGER_TOPIC);
 
-    private LOGGING(){}
+    private Logging(){}
 }

@@ -4,7 +4,7 @@ import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.Executor;
 import java.util.function.Supplier;
 
-import static org.fermented.dairy.app.server.concurrency.logging.LOGGING.THREADS_FUTURES_LOGGER;
+import static org.fermented.dairy.app.server.concurrency.logging.Logging.THREADS_FUTURES_LOGGER;
 
 /// A factory for creating {@link FutureFactory} implementations that use different threading models.
 ///
