@@ -30,7 +30,7 @@ public class BoundedVirtualThreadFactory implements ThreadFactory {
     /// @param maxWaitCount The maximum number of tasks that can wait for a slot (best-effort).
     /// @param threadNamePrefix The prefix for virtual thread names.
     /// @since 1.0.0
-    BoundedVirtualThreadFactory(final int maxConcurrency, final long maxWaitCount, final String threadNamePrefix) {
+    public BoundedVirtualThreadFactory(final int maxConcurrency, final long maxWaitCount, final String threadNamePrefix) {
         this.semaphore = new Semaphore(maxConcurrency, true);
         this.maxWaitCount = maxWaitCount;
         this.threadBuilder = Thread.ofVirtual().name(threadNamePrefix, 1);
