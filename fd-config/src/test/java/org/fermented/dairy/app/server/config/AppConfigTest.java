@@ -8,7 +8,7 @@ public class AppConfigTest {
 
     @Test
     public void testGetStringFromPropertiesFile() {
-        AppConfig config = new AppConfig();
+        Config config = new Config();
         Optional<String> appName = config.getString("app.name");
         assertTrue(appName.isPresent());
         assertEquals("FD App Server", appName.get());
@@ -17,7 +17,7 @@ public class AppConfigTest {
     @Test
     public void testGetStringFromSystemProperties() {
         System.setProperty("test.property", "testValue");
-        AppConfig config = new AppConfig();
+        Config config = new Config();
         Optional<String> value = config.getString("test.property");
         assertTrue(value.isPresent());
         assertEquals("testValue", value.get());
@@ -27,7 +27,7 @@ public class AppConfigTest {
     @Test
     public void testGetStringWithDefaultValue() {
         System.setProperty("test.property.with.default", "actualValue");
-        AppConfig config = new AppConfig();
+        Config config = new Config();
 
         //config exists
         String value = config.getString("test.property.with.default", "defaultValue");

@@ -19,13 +19,14 @@ This project is a dependency for the `fd-bootstrap` project and **cannot be boot
 The `AppConfig` class is the primary entry point. When instantiated with no arguments, it automatically loads all available `ConfigProvider`s found via `ServiceLoader`.
 
 ```java
-import org.fermented.dairy.app.server.config.AppConfig;
+import org.fermented.dairy.app.server.config.Config;
+
 import java.util.Optional;
 
 public class Example {
     public static void main(String[] args) {
-        AppConfig config = new AppConfig();
-        
+        Config config = new Config();
+
         Optional<String> dbUrl = config.getString("db.url");
         dbUrl.ifPresent(url -> System.out.println("Database URL: " + url));
     }

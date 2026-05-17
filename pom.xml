@@ -46,6 +46,7 @@
         <module>fd-file-server</module>
         <module>fd-concurrency</module>
         <module>fd-config</module>
+        <module>fd-server-utils</module>
     </modules>
 
     <dependencyManagement>
@@ -72,6 +73,16 @@
                 <artifactId>awaitility</artifactId>
                 <version>4.3.0</version>
                 <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.fermented.dairy.app.server</groupId>
+                <artifactId>fd-concurrency</artifactId>
+                <version>${version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.fermented.dairy.app.server</groupId>
+                <artifactId>fd-config</artifactId>
+                <version>${version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

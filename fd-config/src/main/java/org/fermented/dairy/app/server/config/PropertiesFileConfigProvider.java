@@ -40,7 +40,7 @@ public class PropertiesFileConfigProvider implements ConfigProvider {
     /// @param key The configuration key to look up.
     /// @return An [Optional] containing the configuration value if found, otherwise an empty [Optional].
     @Override
-    public Optional<String> getValue(String key) {
+    public Optional<String> getString(String key) {
         return Optional.ofNullable(properties.getProperty(key));
     }
 
